@@ -6,8 +6,27 @@ STOP_WORDS = [
 
 
 def print_word_freq(file):
-    """Read in `file` and print out the frequency of words in that file."""
-    pass
+    file = open(file)
+    text = file.read()
+    for word in text:
+        text = text.lower()
+    text = text.replace("\n", " ")
+    text = text.replace(",", "")
+    text = text.replace(".", "")
+    text = text.replace("?", "")
+    text = text.replace("'", "")
+    text = text.replace('"', "")
+    text = text.replace('”', "")
+    text = text.replace('“', "")
+    text = text.replace("-", " ")
+    text = text.replace(":", "")
+    text = text.split(" ")
+    for word in text:
+        if word in STOP_WORDS:
+            text.remove(word)
+    print(text) 
+    print(file)
+    file.close()
 
 
 if __name__ == "__main__":
